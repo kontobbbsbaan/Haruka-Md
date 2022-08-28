@@ -1,5 +1,5 @@
 const fs = require("fs");
-const petik = '```'
+const petik = '_'
 let setting = JSON.parse(fs.readFileSync('./config.json'))
 const { getLimit, getBalance, cekGLimit } = require("../lib/limit")
 
@@ -15,26 +15,19 @@ function toCommas(x) {
 exports.allMenu = (ucapanWaktu, pushname, mundur, upload, download, ownerName, botName, jam, tanggal, runtime, isCreator, isPremium, sender, limitCount, limit, gcount, glimit, balance, prefix) => {
     return`${ucapanWaktu} ${pushname !== undefined ? pushname : 'Kak'}
 
-Hitung Mundur Tahun Baru
-${mundur}
+*𝘽𝙊𝙏 𝙄𝙉𝙁𝙊*
+ • 👤Creator : ${ownerName}
+ • 🤖Bot Name : ${botName}
+ • ⏰Time : ${jam}
+ • 📕Date : ${tanggal(new Date())}
+ • ⌛Runtime : ${runtime(process.uptime())}
 
-*STATISTICS*
- • Upload : ${upload}
- • Downloads : ${download}
-
-*BOT INFO*
- • Creator : ${ownerName}
- • Bot Name : ${botName}
- • Time : ${jam}
- • Date : ${tanggal(new Date())}
- • Runtime : ${runtime(process.uptime())}
-
-*USER INFO*
- • Name : ${pushname !== undefined ? pushname : '-'}
- • Status : ${isCreator ? 'Owner' : isPremium ? 'Premium' : 'Free'}
- • Limit : ${isCreator ? 'Unlimited' : isPremium ? 'Unlimited' : getLimit(sender, limitCount, limit)}
- • Limit Game : ${isCreator ? 'Unlimited' : cekGLimit(sender, gcount, glimit)}
- • Balance : ${toCommas(getBalance(sender, balance))}
+*𝙐𝙎𝙀𝙍 𝙄𝙉𝙁𝙊*
+ • 🗣️Name : ${pushname !== undefined ? pushname : '-'}
+ • ✨Status : ${isCreator ? 'Owner' : isPremium ? 'Premium' : 'Free'}
+ • 💅Limit : ${isCreator ? 'Unlimited' : isPremium ? 'Unlimited' : getLimit(sender, limitCount, limit)}
+ • 👑Limit Game : ${isCreator ? 'Unlimited' : cekGLimit(sender, gcount, glimit)}
+ • 💲Balance : ${toCommas(getBalance(sender, balance))}
 
 *MAIN MENU*${petik}
  • ${prefix}menu
